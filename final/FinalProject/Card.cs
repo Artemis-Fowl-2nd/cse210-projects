@@ -1,32 +1,39 @@
-class Card()
+class Card
 {
     private int _rank;
     private string _suit;
 
-    private int _id;
-
+    public Card(int rank, string suit)
+    {
+        _rank = rank;
+        _suit = suit;
+    }
+    public int GetRank()
+    {
+        return _rank;
+    }
     public void Display()
     {
         if (_rank == 1)
         {
-            Console.WriteLine("A");
+            Console.Write("A");
         }
         else if( _rank ==11)
         {
-            Console.WriteLine("J");
+            Console.Write("J");
         }
         else if(_rank ==12)
         {
-            Console.WriteLine("Q");
+            Console.Write("Q");
         }
         else if (_rank == 13)
         {
-            Console.WriteLine("K");
+            Console.Write("K");
         }
         else
         {
-            Console.WriteLine(_rank);
+            Console.Write(_rank);
         }
-        Console.WriteLine(_suit);
+        Console.WriteLine($" {_suit}");
     }
 }

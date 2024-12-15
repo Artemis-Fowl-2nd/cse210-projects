@@ -1,28 +1,46 @@
-class Hand()
+class Hand
 {
     private List<Card> _cardsInHand;
 
     private List<Card> _selectedCards;
     private int _handSize;
-
-    public void Select(int a)
+    
+    public Hand(int handSize)
     {
-        _selectedCards.Add(_cardsInHand[a]);
+        _cardsInHand = new List<Card>();
+        _selectedCards = new List<Card>();
+        _handSize = handSize;
     }
 
-    public void Discard(Card a)
+    
+
+    public void Select(int a)
+    {   
+        if(_selectedCards.Count()<5)
+        {
+        _selectedCards.Add(_cardsInHand[a]);
+        }
+        else
+        {
+            Console.WriteLine("You cant select that many cards");
+        }
+    }
+
+    public void Discard(Card discard)
     {
-        _cardsInHand.Remove(a);
-        //Draw();
+        _cardsInHand.Remove(discard);
+    }
+
+    public void AddCard(Card Added)
+    {
+        _cardsInHand.Add(Added);
     }
 
     public List<Card> Submit()
     {
-        return _selectedCards;
-        //foreach( Card a in _selectedCards)
-        {
-          //  Discard(a);
-        }
+        List<Card> a = _selectedCards;
+        _selectedCards.Clear();
+        return a;
     }
 
     public bool IsOverHandLimit()
@@ -34,6 +52,14 @@ class Hand()
         else
         {
             return false;
+        }
+    }
+
+    public void Look()
+    {
+    foreach(Card look in _cardsInHand)
+        {
+            look.Display();
         }
     }
 }

@@ -1,12 +1,23 @@
 class Deck
 {
+    
     private List<Card> _decklist;
 
     public Card Draw()
     {
-        Card a = _decklist[0];
-        _decklist.RemoveAt(0);
+        Random rnd = new Random();
+        string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
+        string suit = suits[rnd.Next(0, suits.Length)];
+        Card a = new Card(rnd.Next(1, 14),suit);
+        
         return a;
 
     }
+
+    public Deck()
+    {
+        
+    }
+
+    
 }
