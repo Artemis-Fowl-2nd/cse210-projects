@@ -16,13 +16,13 @@ class Hand
 
     public void Select(int a)
     {   
-        if(_selectedCards.Count()<5)
+        if(_selectedCards.Count<5)
         {
         _selectedCards.Add(_cardsInHand[a]);
         }
         else
         {
-            Console.WriteLine("You cant select that many cards");
+            Console.WriteLine("You cant select like that");
         }
     }
 
@@ -40,6 +40,7 @@ class Hand
     {
         List<Card> a = _selectedCards;
         _selectedCards.Clear();
+        _cardsInHand.Clear();
         return a;
     }
 

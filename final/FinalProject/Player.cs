@@ -12,7 +12,7 @@ class Player()
 
     public void AddPoints(int add)    
     {
-        _points = _points + add;
+        _points = _points + add + 1;
     }    
 
     public void DisplayPoints()

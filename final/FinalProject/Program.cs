@@ -35,16 +35,27 @@ class Program
             string input = Console.ReadLine();
             if(input == "s")
             {
-                aPlayer.AddPoints(House.Judge(playerHand.Submit()));
+
+                int points = House.Judge(playerHand.Submit());
+                
+                aPlayer.AddPoints(points);
                 select=false;
             }
             else if (input == "q")
             {
                 play = false;
+                select=false;
             }
             else
             {
-                playerHand.Select(Int16.Parse(input));
+                if (int.TryParse(input, out int parsedInput))
+                    {
+                    playerHand.Select(parsedInput);
+                    }
+                else
+                    {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                    }
             }
         }
         aPlayer.DisplayPoints();

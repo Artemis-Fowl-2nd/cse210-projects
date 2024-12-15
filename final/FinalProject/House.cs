@@ -11,6 +11,7 @@ class House
         foreach(Card target in a)
         {
             points += target.GetRank();
+            
         }
         return points;
     }
